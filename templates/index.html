@@ -261,7 +261,13 @@
  <span class="text-xs font-mono font-normal text-brand-steel">v1.0.0</span>
  </h3>
  <p class="text-brand-navy text-sm leading-relaxed">
- Platform terpadu kesehatan mental berbasis Artificial Intelligence dan komunitas anonim. Dilengkapi jurnal harian terenkripsi (<code class="text-brand-steel">crypto-js</code>), chatbot AI pendamping terintegrasi OpenAI SDK, skrining kecemasan klinis GAD-7, autentikasi 2FA TOTP, dan analisis sentimen bahasa Indonesia dengan stemmer Sastrawi.
+           <div class="pt-2">
+            <button onclick="openModal()" class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-steel hover:text-brand-dark transition-colors font-medium underline underline-offset-4">
+              <span>[+] Inspect System Architecture & Data Flow</span>
+            </button>
+          </div>
+          <p class="text-brand-navy text-sm leading-relaxed">
+            Platform terpadu kesehatan mental berbasis Artificial Intelligence dan komunitas anonim. Dilengkapi jurnal harian terenkripsi (<code class="text-brand-steel">crypto-js</code>), chatbot AI pendamping terintegrasi OpenAI SDK, skrining kecemasan klinis GAD-7, autentikasi 2FA TOTP, dan analisis sentimen bahasa Indonesia dengan stemmer Sastrawi.
  </p>
  </div>
 
@@ -578,6 +584,86 @@ Status: 100% Focused on Engineering`,
       // Auto scroll to bottom
       termScrollArea.scrollTop = termScrollArea.scrollHeight;
     }
+  </script>
+
+
+  <!-- Interactive Architecture Modal (JagaJiwa Deep-Dive) -->
+  <div id="arch-modal" class="fixed inset-0 z-50 bg-brand-dark/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-brand-surface border border-brand-steel/50 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto font-sans" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-brand-ice pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <h3 class="font-bold text-base text-brand-dark font-mono">JagaJiwa / Architecture & Data Pipeline</h3>
+        </div>
+        <button onclick="closeModal()" class="text-brand-navy hover:text-brand-steel p-1 rounded-md text-sm font-mono">[close ×]</button>
+      </div>
+
+      <div class="space-y-3 text-xs leading-relaxed text-brand-navy font-mono">
+        <div class="p-3 bg-brand-dark text-brand-surface rounded-xl space-y-2 border border-brand-navy">
+          <div class="text-emerald-400 font-semibold">[FLOW 1] Zero-Knowledge Journal Encryption:</div>
+          <div class="pl-2 border-l border-brand-steel/40 text-[11px] text-brand-ice/90">
+            User Input (Mood & Diary) ➔ Client-side AES-256 (crypto-js) ➔ Express 5 API ➔ PostgreSQL (Supabase RLS). Server & database never store plain diary text.
+          </div>
+        </div>
+
+        <div class="p-3 bg-brand-dark text-brand-surface rounded-xl space-y-2 border border-brand-navy">
+          <div class="text-cyan-300 font-semibold">[FLOW 2] JiwaBot AI & Sentiment Analysis:</div>
+          <div class="pl-2 border-l border-brand-steel/40 text-[11px] text-brand-ice/90">
+            User Chat ➔ sastrawijs Indonesian Stemmer ➔ Token Sentiment Scoring ➔ OpenAI SDK Streaming Endpoint ➔ Realtime UI Render (Vite 8 + React 19).
+          </div>
+        </div>
+
+        <div class="p-3 bg-brand-dark text-brand-surface rounded-xl space-y-2 border border-brand-navy">
+          <div class="text-amber-300 font-semibold">[FLOW 3] Security & 2FA Verification:</div>
+          <div class="pl-2 border-l border-brand-steel/40 text-[11px] text-brand-ice/90">
+            Google OAuth / Passport ➔ JWT Stateless Session ➔ otplib TOTP Generation & QR Verification.
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-brand-ice flex justify-between items-center text-xs">
+        <span class="text-brand-steel font-mono">Stack: React 19 • Express 5 • Supabase • Vitest</span>
+        <button onclick="closeModal()" class="bg-brand-dark text-brand-surface hover:bg-brand-navy px-4 py-1.5 rounded-lg font-mono text-xs">Tutup Detail</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Project Category Filtering
+    function filterProjects(category) {
+      const items = document.querySelectorAll('.project-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "filter-btn active-filter px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-dark text-brand-surface shadow-sm";
+        } else {
+          btn.className = "filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-surface text-brand-navy border border-brand-ice hover:border-brand-steel";
+        }
+      });
+
+      items.forEach(item => {
+        const itemCats = item.getAttribute('data-category') || '';
+        if (category === 'all' || itemCats.includes(category)) {
+          item.classList.remove('hidden');
+          item.classList.add('flex');
+        } else {
+          item.classList.add('hidden');
+          item.classList.remove('flex');
+        }
+      });
+    }
+
+    // Modal controls
+    function openModal() {
+      const modal = document.getElementById('arch-modal');
+      modal.classList.remove('hidden');
+    }
+    function closeModal() {
+      const modal = document.getElementById('arch-modal');
+      modal.classList.add('hidden');
+    }
+    document.getElementById('arch-modal').addEventListener('click', closeModal);
   </script>
 
 </body>
