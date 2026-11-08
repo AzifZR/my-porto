@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Muhammad Azif Zain Rizky (AzifZR) — Software Developer</title>
+ <!-- Tailwind CSS CDN with custom colors -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: {
+ brand: {
+ dark: '#0A1931',
+ navy: '#1A3D63',
+ steel: '#4A7FA7',
+ ice: '#B3CFE5',
+ surface: '#F6FAFD',
+ }
+ },
+ fontFamily: {
+ mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+ sans: ['Inter', 'system-ui', 'sans-serif'],
+ },
+ animation: {
+ 'blob-float': 'float 8s ease-in-out infinite',
+ 'blob-float-delayed': 'float 10s ease-in-out 4s infinite',
+ 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+ },
+ keyframes: {
+ float: {
+ '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+ '50%': { transform: 'translate(30px, -40px) scale(1.08)' },
+ }
+ }
+ }
+ }
+ }
+ </script>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+ <style>
+ body { font-family: 'Inter', sans-serif; }
+ .code-font { font-family: 'JetBrains Mono', monospace; }
+
+ /* Typing cursor blinking */
+ .typing-cursor {
+ display: inline-block;
+ width: 8px;
+ height: 15px;
+ background-color: #4A7FA7;
+ vertical-align: middle;
+ animation: blink 0.8s infinite;
+ }
+ @keyframes blink {
+ 0%, 100% { opacity: 1; }
+ 50% { opacity: 0; }
+ }
+
+ /* Subtle Card Hover Glow */
+ .glow-card {
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ }
+ .glow-card:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 12px 30px -10px rgba(74, 127, 167, 0.18);
+ }
+ </style>
+</head>
+<body class="bg-white text-brand-dark antialiased selection:bg-brand-ice selection:text-brand-dark relative overflow-x-hidden min-h-screen">
+
+ <!-- Ambient Fluid Animated Glow Orbs -->
+ <div class="absolute top-0 right-0 w-[620px] h-[620px] bg-gradient-to-br from-brand-ice/45 via-brand-steel/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float translate-x-1/4 -translate-y-1/4"></div>
+ <div class="absolute top-[1050px] left-0 w-[550px] h-[550px] bg-gradient-to-tr from-brand-steel/25 via-brand-ice/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float-delayed -translate-x-1/3"></div>
+
+ <!-- Minimal Floating Navbar -->
+ <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
+ <nav class="w-full max-w-5xl bg-brand-surface/85 backdrop-blur-md border border-brand-ice/80 rounded-full px-6 py-3 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+ <a href="#" class="font-semibold text-sm tracking-tight text-brand-dark flex items-center gap-2 group">
+ <span class="group-hover:text-brand-steel transition-colors">AzifZR</span>
+ <span class="text-brand-steel text-xs font-mono">// systems</span>
+ </a>
+
+ <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-navy">
+ <a href="#work" class="hover:text-brand-steel transition-colors">Featured Work</a>
+ <a href="#stack" class="hover:text-brand-steel transition-colors">Tech Stack</a>
+ <a href="#about" class="hover:text-brand-steel transition-colors">About</a>
+ </div>
+
+ <a href="mailto:contact@azifzr.dev" class="flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-brand-surface px-4 py-1.5 rounded-full text-xs font-medium transition-all group shadow-sm">
+ <span class="w-2 h-2 rounded-full bg-brand-steel group-hover:scale-125 transition-transform animate-ping"></span>
+ <span class="relative -ml-3 w-2 h-2 rounded-full bg-brand-steel"></span>
+ <span>Let's Talk →</span>
+ </a>
+ </nav>
+ </header>
+
+ <!-- Hero Section -->
+ <section class="max-w-6xl mx-auto px-6 pt-36 pb-20 md:pt-44 md:pb-28">
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+ 
+ <!-- Hero Text Column -->
+ <div class="lg:col-span-7 space-y-6">
+ <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-surface border border-brand-ice text-brand-steel text-xs font-mono tracking-wider uppercase font-semibold hover:border-brand-steel transition-colors">
+ <span class="w-2 h-2 rounded-full bg-brand-steel"></span>
+ <span>Rust & Distributed Systems</span>
+ </div>
+
+ <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-dark leading-[1.12]">
+ Engineering fast, <br class="hidden sm:inline">
+ <span class="text-brand-steel relative inline-block">
+ zero-compromise
+ <svg class="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">
+ <path d="M0 7 C 20 7, 30 1, 50 1 C 70 1, 80 7, 100 7" stroke="#4A7FA7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+ </svg>
+ </span> systems.
+ </h1>
+
+ <p class="text-brand-navy text-lg sm:text-xl font-normal leading-relaxed max-w-xl">
+ Crafting hyper-efficient backend engines, memory-safe services, and WebAssembly tooling that perform under demanding real-time workloads.
+ </p>
+
+ <!-- CTA Buttons -->
+ <div class="flex flex-wrap items-center gap-4 pt-2">
+ <a href="#work" class="bg-brand-dark text-brand-surface hover:bg-brand-navy hover:scale-105 active:scale-95 px-6 py-3 rounded-lg text-sm font-medium transition-all shadow-sm">
+ Explore Projects ↓
+ </a>
+ <a href="#about" class="bg-brand-surface border border-brand-ice text-brand-dark hover:border-brand-steel hover:scale-105 active:scale-95 px-6 py-3 rounded-lg text-sm font-medium transition-all">
+ Get In Touch
+ </a>
+ </div>
+
+ <!-- Metrics Bar with Counter Animation -->
+ <div class="grid grid-cols-3 gap-6 pt-6 border-t border-brand-ice/60 max-w-lg">
+ <div class="group">
+ <div class="text-2xl sm:text-3xl font-bold text-brand-dark code-font group-hover:text-brand-steel transition-colors">&lt; 0.8ms</div>
+ <div class="text-xs text-brand-steel mt-0.5 font-medium">p99 latency target</div>
+ </div>
+ <div class="group">
+ <div class="text-2xl sm:text-3xl font-bold text-brand-dark code-font group-hover:text-brand-steel transition-colors">100%</div>
+ <div class="text-xs text-brand-steel mt-0.5 font-medium">Safe memory footprint</div>
+ </div>
+ <div class="group">
+ <div class="text-2xl sm:text-3xl font-bold text-brand-dark code-font group-hover:text-brand-steel transition-colors">60 fps</div>
+ <div class="text-xs text-brand-steel mt-0.5 font-medium">WASM Client Render</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Hero Terminal Column with Dynamic Typing Simulation -->
+ <div class="lg:col-span-5 relative">
+ <!-- Floating Profile Avatar with Pulse Ripple (Moved to Top-Right Corner) -->
+ <div class="absolute -top-7 -right-5 z-20 w-24 h-24 rounded-full border-4 border-brand-steel bg-brand-surface p-1 shadow-2xl flex items-center justify-center overflow-hidden hover:scale-110 transition-transform duration-300">
+ <div class="w-full h-full rounded-full bg-brand-navy relative overflow-hidden">
+ <img src="/static/avatar.jpg" alt="AzifZR" class="w-full h-full object-cover object-top">
+ <span class="absolute top-1 right-1 w-3 h-3 bg-emerald-400 rounded-full border-2 border-brand-navy shadow-sm"></span>
+ </div>
+ </div>
+
+ <!-- macOS style Rust Interactive Live Terminal -->
+ <div class="bg-brand-dark rounded-2xl border border-brand-navy shadow-2xl overflow-hidden code-font hover:shadow-brand-steel/10 transition-shadow">
+ <!-- Terminal Header -->
+ <div class="bg-brand-navy/60 px-4 py-3 flex items-center justify-between border-b border-brand-navy select-none">
+ <div class="flex items-center gap-2">
+ <div class="w-3 h-3 rounded-full bg-[#FF5F56] hover:opacity-80 cursor-pointer"></div>
+ <div class="w-3 h-3 rounded-full bg-[#FFBD2E] hover:opacity-80 cursor-pointer"></div>
+ <div class="w-3 h-3 rounded-full bg-[#27C93F] hover:opacity-80 cursor-pointer"></div>
+ </div>
+ <div class="text-xs text-brand-ice/80">azif@system: ~/cargo</div>
+ <div class="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+ <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> live
+ </div>
+ </div>
+
+ <!-- Terminal Dynamic Typing Console -->
+ <div class="p-5 text-xs text-brand-surface space-y-2.5 leading-relaxed min-h-[340px]" id="terminal-body">
+ <div class="text-brand-steel font-medium flex items-center">
+ <span class="text-brand-ice/50 mr-2">$</span>
+ <span id="typed-cmd"></span><span class="typing-cursor" id="cursor"></span>
+ </div>
+ 
+ <div id="terminal-output" class="space-y-2 hidden">
+ <div class="text-brand-ice/80 pl-3 border-l-2 border-brand-steel/30 text-[11px] space-y-0.5">
+ <div>Compiling <span class="text-amber-300">azifzr-core</span> v0.4.2</div>
+ <div>Compiling <span class="text-amber-300">tokio-engine</span> v1.38.0</div>
+ <div>Finished <span class="text-emerald-400 font-semibold">release [optimized]</span> target(s) in 3.42s</div>
+ </div>
+
+ <div class="text-brand-steel font-medium pt-1">
+ <span class="text-brand-ice/50 mr-2">$</span> ./azifzr-benchmark --concurrency=10000
+ </div>
+
+ <div class="text-brand-surface pl-3 space-y-1 text-[11.5px]">
+ <div><span class="text-emerald-400 font-bold">[OK]</span> 10,000 active streams synchronized</div>
+ <div><span class="text-emerald-400 font-bold">[OK]</span> Allocated heap: <span class="text-cyan-300">12.4 MB</span> (zero leaks)</div>
+ <div><span class="text-emerald-400 font-bold">[OK]</span> Throughput: <span class="text-emerald-300 font-bold">184,200 req/sec</span></div>
+ <div><span class="text-emerald-400 font-bold">[OK]</span> Latency: p50 <span class="text-cyan-300">0.12ms</span> | p99 <span class="text-cyan-300">0.74ms</span></div>
+ </div>
+
+ <div class="pt-2 text-brand-ice/80 text-[11px] border-t border-brand-navy/80 flex items-center justify-between">
+ <span>STATUS: All systems nominal.</span>
+ <span class="text-emerald-400 font-mono">100% OK</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 01 / FEATURED WORK -->
+ <section id="work" class="max-w-6xl mx-auto px-6 py-20 border-t border-brand-ice/70">
+ <div class="mb-12">
+ <div class="text-xs font-mono font-semibold text-brand-steel uppercase tracking-widest">01 / Engineered Portfolio</div>
+ <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mt-1">Featured Systems & Applications</h2>
+ </div>
+
+ <!-- Asymmetrical Bento Grid with Glow Cards -->
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+ 
+ <!-- Big Bento Hero Card (7 Cols) -> JagaJiwa Project -->
+ <div class="lg:col-span-7 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
+ <div class="space-y-4">
+ <!-- Live Preview Image Container -->
+ <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
+ <img src="/static/jagajiwa-dashboard.png" alt="JagaJiwa Platform Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+ <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1 rounded-full border border-brand-steel/50 flex items-center gap-2">
+ <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+ <span class="text-[11px] font-mono text-brand-surface font-semibold tracking-wide">FLAGSHIP TEAM PROJECT</span>
+ </div>
+ <div class="absolute bottom-3 right-3 bg-brand-dark/85 backdrop-blur-md px-3 py-1 rounded-lg border border-brand-steel/40 text-[11px] font-mono text-brand-ice">
+ GAD-7 • End-to-End Encrypted
+ </div>
+ </div>
+
+ <h3 class="text-2xl font-bold text-brand-dark pt-1 flex items-center justify-between">
+ <span>JagaJiwa — Mental Health Ecosystem</span>
+ <span class="text-xs font-mono font-normal text-brand-steel">v1.0.0</span>
+ </h3>
+ <p class="text-brand-navy text-sm leading-relaxed">
+ Platform terpadu kesehatan mental berbasis Artificial Intelligence dan komunitas anonim. Dilengkapi jurnal harian terenkripsi (<code class="text-brand-steel">crypto-js</code>), chatbot AI pendamping terintegrasi OpenAI SDK, skrining kecemasan klinis GAD-7, autentikasi 2FA TOTP, dan analisis sentimen bahasa Indonesia dengan stemmer Sastrawi.
+ </p>
+ </div>
+
+ <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice flex flex-wrap gap-2">
+ <span>React 19</span> • <span>Express 5</span> • <span>TypeScript</span> • <span>Supabase (PostgreSQL)</span> • <span>OpenAI</span> • <span>TailwindCSS 4</span>
+ </div>
+ </div>
+
+ <!-- Bento Card 2 (5 Cols - JiwaBot AI & Anon Community) -->
+ <div class="lg:col-span-5 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
+ <div class="space-y-4">
+ <!-- JiwaBot Preview Container -->
+ <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
+ <img src="/static/jagajiwa-bot.png" alt="JiwaBot AI Companion" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+ <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1 rounded-full border border-brand-steel/50 flex items-center gap-1.5">
+ <span class="text-xs"></span>
+ <span class="text-[11px] font-mono text-brand-surface font-semibold">JiwaBot Companion</span>
+ </div>
+ </div>
+
+ <h3 class="text-xl font-bold text-brand-dark pt-1">JiwaBot & Anonymous Community</h3>
+ <p class="text-brand-navy text-sm leading-relaxed">
+ Chatbot pendamping AI dengan simulasi streaming response real-time serta forum komunitas anonim aman yang dilengkapi filter profanity otomatis dan modul sentimen NLP.
+ </p>
+ </div>
+
+ <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice flex flex-wrap gap-2">
+ <span>OpenAI API</span> • <span>sastrawijs NLP</span> • <span>JWT + 2FA</span> • <span>otplib</span>
+ </div>
+ </div>
+
+ <!-- Lower Bento Card 3: Backend & Systems Architecture -->
+ <div class="lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
+ <div class="space-y-3">
+ <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
+ <span class="text-emerald-400"></span> Cryptography & Auth Pipeline
+ </div>
+ <h3 class="text-xl font-bold text-brand-dark">Zero-Knowledge Journal Encryption</h3>
+ <p class="text-brand-navy text-sm leading-relaxed">
+ Arsitektur keamanan data sensitif pengguna dengan enkripsi AES sisi klien sebelum dikirim ke database Supabase, memastikan privasi catatan harian kesehatan mental tetap terlindungi penuh.
+ </p>
+ </div>
+ <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice">
+ TypeScript • Crypto-JS • OAuth 2.0 • PostgreSQL RLS
+ </div>
+ </div>
+
+ <!-- Lower Bento Card 4: High Performance Rust Tooling -->
+ <div class="lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
+ <div class="space-y-3">
+ <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
+ <span class="text-emerald-400"></span> High Concurrency Engine
+ </div>
+ <h3 class="text-xl font-bold text-brand-dark">Microservice & Developer Utilities</h3>
+ <p class="text-brand-navy text-sm leading-relaxed">
+ Layanan sistem berkecepatan tinggi dengan Rust dan Axum, mengoptimalkan pipeline pemrosesan data asinkronus, zero memory leaks, dan automated testing pipeline.
+ </p>
+ </div>
+ <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice">
+ Rust • Axum • Tokio • Docker • PostgreSQL
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 02 / TECH STACK -->
+ <section id="stack" class="max-w-6xl mx-auto px-6 py-20 border-t border-brand-ice/70">
+ <div class="mb-12">
+ <div class="text-xs font-mono font-semibold text-brand-steel uppercase tracking-widest">02 / Arsenal & Proficiency</div>
+ <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mt-1">Core Technical Stack</h2>
+ </div>
+
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+ 
+ <!-- Primary Core: Python & Backend -->
+ <div class="bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card">
+ <h3 class="text-lg font-bold text-brand-dark mb-6 flex items-center justify-between">
+ <span class="flex items-center gap-2"> Python & Backend</span>
+ <span class="text-[10px] font-mono text-emerald-400 bg-brand-dark px-2 py-0.5 rounded-full">Primary</span>
+ </h3>
+ <div class="space-y-4 text-sm">
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ Python (Main Driver)</div>
+ <div class="text-xs text-brand-navy mt-1">Automasi, data processing, backend API, & scripting</div>
+ </div>
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ PHP & Laravel</div>
+ <div class="text-xs text-brand-navy mt-1">Web MVC, database migrations, Eloquent ORM & REST API</div>
+ </div>
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ Database & SQL</div>
+ <div class="text-xs text-brand-navy mt-1">PostgreSQL (Supabase), MySQL/MariaDB, query optimization</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Modern Web & Frontend Stack (JagaJiwa Proven) -->
+ <div class="bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card">
+ <h3 class="text-lg font-bold text-brand-dark mb-6 flex items-center justify-between">
+ <span class="flex items-center gap-2"> Modern Web Ecosystem</span>
+ <span class="text-[10px] font-mono text-brand-ice bg-brand-navy px-2 py-0.5 rounded-full">Shipped</span>
+ </h3>
+ <div class="space-y-4 text-sm">
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ TypeScript & JavaScript</div>
+ <div class="text-xs text-brand-navy mt-1">Strict type-safety di client & server, asynchronous logic</div>
+ </div>
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ React 19 & TailwindCSS 4</div>
+ <div class="text-xs text-brand-navy mt-1">Modern component architecture, Vite 8 tooling, responsive UI</div>
+ </div>
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ Express 5 Backend</div>
+ <div class="text-xs text-brand-navy mt-1">RESTful services, JWT auth, middleware, 2FA security</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Active Exploration & Systems -->
+ <div class="bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card">
+ <h3 class="text-lg font-bold text-brand-dark mb-6 flex items-center justify-between">
+ <span class="flex items-center gap-2"> Systems & Learning</span>
+ <span class="text-[10px] font-mono text-amber-300 bg-brand-dark px-2 py-0.5 rounded-full">Exploring</span>
+ </h3>
+ <div class="space-y-4 text-sm">
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ Rust (Actively Learning)</div>
+ <div class="text-xs text-brand-navy mt-1">Memory safety, ownership, concurrency, Axum web engine</div>
+ </div>
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ Fullstack Laravel</div>
+ <div class="text-xs text-brand-navy mt-1">Mendalami ekosistem enterprise web & full-cycle dev</div>
+ </div>
+ <div class="p-3 rounded-lg hover:bg-white transition-colors">
+ <div class="font-semibold text-brand-steel font-mono">/ Linux Environment & Git</div>
+ <div class="text-xs text-brand-navy mt-1">Arch Linux workstation, git teamwork workflow, CI/CD</div>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 03 / ABOUT ME -->
+ <section id="about" class="max-w-6xl mx-auto px-6 py-20 border-t border-brand-ice/70">
+ <div class="mb-12">
+ <div class="text-xs font-mono font-semibold text-brand-steel uppercase tracking-widest">03 / Philosophy & Background</div>
+ <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mt-1">Academic & Engineering Journey</h2>
+ </div>
+
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+ 
+ <!-- Narrative (5 cols) -->
+ <div class="lg:col-span-5 space-y-4 text-brand-navy leading-relaxed text-sm sm:text-base">
+ <p>
+ Halo! Saya <strong class="text-brand-dark font-semibold">Muhammad Azif Zain Rizky</strong>, mahasiswa <strong>Semester 3 D3 Manajemen Informatika di Politeknik Negeri Malang (POLINEMA) PSDKU Kediri</strong>.
+ </p>
+ <p>
+ Fokus utama saya bertumpu pada <strong>Python</strong> untuk backend & automasi sistem, didukung pengalaman nyata dalam pengembangan web menggunakan <strong>JavaScript / PHP</strong>, serta stack modern seperti <strong>TypeScript, React 19, Express 5, dan TailwindCSS 4</strong> pada proyek tim berskala penuh seperti <em>JagaJiwa</em>.
+ </p>
+ <p>
+ Saat ini saya aktif mendalami arsitektur <strong>Laravel</strong> dan mengeksplorasi bahasa <strong>Rust</strong> untuk membangun fondasi rekayasa perangkat lunak yang cepat, efisien, dan memiliki <em>memory safety</em> tinggi.
+ </p>
+ <div class="pt-2 flex items-center gap-2 text-xs font-mono text-brand-steel">
+ <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+ <span>D3 Manajemen Informatika • Polinema Kediri</span>
+ </div>
+ </div>
+
+ <!-- Photo Frame Spot (3 cols) -->
+ <div class="lg:col-span-3">
+ <div class="bg-brand-surface border border-brand-ice rounded-2xl p-3 glow-card text-center group">
+ <div class="w-full aspect-[4/5] rounded-xl bg-brand-dark relative overflow-hidden border border-brand-navy shadow-inner">
+ <img src="/static/profile.jpg" alt="Azif Rizky - Polinema Kediri" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+ <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-transparent to-transparent flex flex-col justify-end p-3.5 text-left">
+ <span class="text-xs font-mono text-brand-surface font-semibold">Muhammad Azif Zain Rizky</span>
+ <span class="text-[10px] text-brand-ice font-mono">D3 MI • Polinema Kediri</span>
+ </div>
+ </div>
+ <div class="text-xs font-mono text-brand-steel mt-2.5 font-medium flex items-center justify-center gap-1.5">
+ <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+ <span>Student & Developer</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Philosophy & Learning Principles Card (4 cols) -->
+ <div class="lg:col-span-4 bg-brand-surface border border-brand-ice rounded-2xl p-6 glow-card space-y-4">
+ <h3 class="text-lg font-bold text-brand-dark flex items-center justify-between">
+ <span>Prinsip Belajar & Dev</span>
+ <span class="text-xs font-mono text-brand-steel">Semester 3</span>
+ </h3>
+ <ul class="space-y-3 text-xs leading-relaxed text-brand-navy">
+ <li class="flex items-start gap-2 group">
+ <span class="text-brand-steel font-bold group-hover:translate-x-0.5 transition-transform">1.</span>
+ <span><strong>Fondasi Kuat:</strong> Kuasai logika algoritma dan struktur data (Python) sebelum loncat ke framework.</span>
+ </li>
+ <li class="flex items-start gap-2 group">
+ <span class="text-brand-steel font-bold group-hover:translate-x-0.5 transition-transform">2.</span>
+ <span><strong>Praktik Kolaboratif:</strong> Terbiasa kerja tim dengan Git, strict linting, dan arsitektur API modular.</span>
+ </li>
+ <li class="flex items-start gap-2 group">
+ <span class="text-brand-steel font-bold group-hover:translate-x-0.5 transition-transform">3.</span>
+ <span><strong>Never Stop Learning:</strong> Dari PHP/Laravel di kampus hingga eksplorasi Rust & low-level memory safety.</span>
+ </li>
+ <li class="flex items-start gap-2 group">
+ <span class="text-brand-steel font-bold group-hover:translate-x-0.5 transition-transform">4.</span>
+ <span><strong>Solutif & Berdampak:</strong> Menghasilkan aplikasi yang menyelesaikan masalah nyata (seperti JagaJiwa).</span>
+ </li>
+ </ul>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- Clean Minimal Footer -->
+ <footer class="max-w-6xl mx-auto px-6 py-12 border-t border-brand-ice flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+ <div class="text-brand-dark font-medium">
+ © 2026 Muhammad Azif Zain Rizky • Precision Engineered with Rust
+ </div>
+ <div class="flex items-center gap-6 font-mono text-brand-steel">
+ <a href="https://github.com" target="_blank" class="hover:text-brand-dark transition-colors">GitHub</a>
+ <a href="https://linkedin.com" target="_blank" class="hover:text-brand-dark transition-colors">LinkedIn</a>
+ <a href="https://x.com" target="_blank" class="hover:text-brand-dark transition-colors">X (Twitter)</a>
+ <a href="mailto:contact@azifzr.dev" class="hover:text-brand-dark transition-colors">Email</a>
+ </div>
+ </footer>
+
+ <!-- Typing Simulation Script -->
+ <script>
+ const commandText = "cargo build --release --target wasm32";
+ const typedCmdEl = document.getElementById("typed-cmd");
+ const terminalOutputEl = document.getElementById("terminal-output");
+ const cursorEl = document.getElementById("cursor");
+
+ let charIndex = 0;
+
+ function typeCommand() {
+ if (charIndex < commandText.length) {
+ typedCmdEl.textContent += commandText.charAt(charIndex);
+ charIndex++;
+ setTimeout(typeCommand, 60 + Math.random() * 40);
+ } else {
+ // Finished typing command, pause slightly then reveal output
+ setTimeout(() => {
+ cursorEl.style.display = 'none';
+ terminalOutputEl.classList.remove('hidden');
+ terminalOutputEl.classList.add('animate-pulse-slow');
+ }, 500);
+ }
+ }
+
+ // Start typing after initial delay
+ window.addEventListener('DOMContentLoaded', () => {
+ setTimeout(typeCommand, 600);
+ });
+ </script>
+
+</body>
+</html>
