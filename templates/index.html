@@ -87,6 +87,41 @@
       scrollbar-color: #1A3D63 transparent;
     }
 
+
+    /* Theme Transition & Cyber Matrix / Dark Mode Palette */
+    html {
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    html.dark-theme {
+      background-color: #070D19 !important;
+      color: #F6FAFD !important;
+    }
+    html.dark-theme body {
+      background-color: #070D19 !important;
+      color: #F6FAFD !important;
+    }
+    html.dark-theme .bg-white {
+      background-color: #070D19 !important;
+    }
+    html.dark-theme .bg-brand-surface {
+      background-color: #0D1B2E !important;
+      border-color: #1A3D63 !important;
+    }
+    html.dark-theme .text-brand-dark {
+      color: #F6FAFD !important;
+    }
+    html.dark-theme .text-brand-navy {
+      color: #B3CFE5 !important;
+    }
+    html.dark-theme .border-brand-ice {
+      border-color: #1A3D63 !important;
+    }
+    html.dark-theme .border-brand-ice\/70,
+    html.dark-theme .border-brand-ice\/80,
+    html.dark-theme .border-brand-ice\/60 {
+      border-color: #1A3D63 !important;
+    }
+
   </style>
 </head>
 <body class="bg-white text-brand-dark antialiased selection:bg-brand-ice selection:text-brand-dark relative overflow-x-hidden min-h-screen">
@@ -855,6 +890,47 @@ Status: 100% Focused on Engineering`,
     // Auto initialize WASM on load
     window.addEventListener('DOMContentLoaded', () => {
       initWasm();
+    });
+  </script>
+
+
+  <!-- Minimal Theme Switcher Script -->
+  <script>
+    function applyTheme(isDark) {
+      const htmlEl = document.documentElement;
+      const themeLabel = document.getElementById('theme-label');
+      const themeIndicator = document.getElementById('theme-indicator');
+
+      if (isDark) {
+        htmlEl.classList.add('dark-theme');
+        if (themeLabel) themeLabel.textContent = 'DARK';
+        if (themeIndicator) {
+          themeIndicator.classList.remove('bg-brand-steel');
+          themeIndicator.classList.add('bg-emerald-400');
+        }
+        localStorage.setItem('azifzr-theme', 'dark');
+      } else {
+        htmlEl.classList.remove('dark-theme');
+        if (themeLabel) themeLabel.textContent = 'LIGHT';
+        if (themeIndicator) {
+          themeIndicator.classList.remove('bg-emerald-400');
+          themeIndicator.classList.add('bg-brand-steel');
+        }
+        localStorage.setItem('azifzr-theme', 'light');
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark-theme');
+      applyTheme(!isDark);
+    }
+
+    // Auto restore preference
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('azifzr-theme');
+      if (saved === 'dark') {
+        applyTheme(true);
+      }
     });
   </script>
 
