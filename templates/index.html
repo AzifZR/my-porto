@@ -71,9 +71,11 @@
 </head>
 <body class="bg-white text-brand-dark antialiased selection:bg-brand-ice selection:text-brand-dark relative overflow-x-hidden min-h-screen">
 
- <!-- Ambient Fluid Animated Glow Orbs -->
+ <!-- Ambient Fluid Animated Glow Orbs Across Entire Page -->
  <div class="absolute top-0 right-0 w-[620px] h-[620px] bg-gradient-to-br from-brand-ice/45 via-brand-steel/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float translate-x-1/4 -translate-y-1/4"></div>
- <div class="absolute top-[1050px] left-0 w-[550px] h-[550px] bg-gradient-to-tr from-brand-steel/25 via-brand-ice/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float-delayed -translate-x-1/3"></div>
+ <div class="absolute top-[900px] left-0 w-[550px] h-[550px] bg-gradient-to-tr from-brand-steel/25 via-brand-ice/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float-delayed -translate-x-1/3"></div>
+ <div class="absolute top-[1700px] right-0 w-[580px] h-[580px] bg-gradient-to-bl from-brand-ice/40 via-brand-steel/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float translate-x-1/4"></div>
+ <div class="absolute top-[2300px] left-0 w-[600px] h-[600px] bg-gradient-to-tr from-brand-steel/20 via-brand-ice/25 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float-delayed -translate-x-1/4"></div>
 
  <!-- Minimal Floating Navbar -->
  <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
@@ -175,37 +177,35 @@
  </div>
 
  <!-- Terminal Dynamic Typing Console -->
- <div class="p-5 text-xs text-brand-surface space-y-2.5 leading-relaxed min-h-[340px]" id="terminal-body">
- <div class="text-brand-steel font-medium flex items-center">
- <span class="text-brand-ice/50 mr-2">$</span>
- <span id="typed-cmd"></span><span class="typing-cursor" id="cursor"></span>
- </div>
- 
- <div id="terminal-output" class="space-y-2 hidden">
- <div class="text-brand-ice/80 pl-3 border-l-2 border-brand-steel/30 text-[11px] space-y-0.5">
- <div>Compiling <span class="text-amber-300">azifzr-core</span> v0.4.2</div>
- <div>Compiling <span class="text-amber-300">tokio-engine</span> v1.38.0</div>
- <div>Finished <span class="text-emerald-400 font-semibold">release [optimized]</span> target(s) in 3.42s</div>
- </div>
+               <!-- Interactive Shell Terminal Console -->
+              <div class="p-5 text-xs text-brand-surface space-y-2.5 leading-relaxed min-h-[350px] max-h-[380px] overflow-y-auto font-mono" id="terminal-scroll-area" onclick="document.getElementById('terminal-input').focus();">
+                
+                <div id="terminal-history" class="space-y-2">
+                  <div class="text-brand-ice/60 text-[11px] pb-1 border-b border-brand-navy/80 flex items-center justify-between">
+                    <span>AzifZR Interactive Shell (v1.0.0-arch)</span>
+                    <span>Type <code class="text-amber-300 font-bold">help</code></span>
+                  </div>
+                  
+                  <div class="text-brand-steel font-medium">
+                    <span class="text-brand-ice/50 mr-2">$</span><span class="text-brand-surface">cargo build --release</span>
+                  </div>
+                  <div class="text-brand-ice/80 pl-3 border-l-2 border-brand-steel/30 text-[11px] space-y-0.5">
+                    <div>Compiling <span class="text-amber-300">azifzr-core</span> v0.4.2</div>
+                    <div>Finished <span class="text-emerald-400 font-semibold">release [optimized]</span> in 1.2s</div>
+                  </div>
+                  <div class="text-emerald-400 font-bold text-[11px]">[OK] Ready. Type 'help' for commands.</div>
+                </div>
 
- <div class="text-brand-steel font-medium pt-1">
- <span class="text-brand-ice/50 mr-2">$</span> ./azifzr-benchmark --concurrency=10000
- </div>
-
- <div class="text-brand-surface pl-3 space-y-1 text-[11.5px]">
- <div><span class="text-emerald-400 font-bold">[OK]</span> 10,000 active streams synchronized</div>
- <div><span class="text-emerald-400 font-bold">[OK]</span> Allocated heap: <span class="text-cyan-300">12.4 MB</span> (zero leaks)</div>
- <div><span class="text-emerald-400 font-bold">[OK]</span> Throughput: <span class="text-emerald-300 font-bold">184,200 req/sec</span></div>
- <div><span class="text-emerald-400 font-bold">[OK]</span> Latency: p50 <span class="text-cyan-300">0.12ms</span> | p99 <span class="text-cyan-300">0.74ms</span></div>
- </div>
-
- <div class="pt-2 text-brand-ice/80 text-[11px] border-t border-brand-navy/80 flex items-center justify-between">
- <span>STATUS: All systems nominal.</span>
- <span class="text-emerald-400 font-mono">100% OK</span>
- </div>
- </div>
- </div>
- </div>
+                <!-- Active Prompt Input Line -->
+                <form id="terminal-form" class="flex items-center pt-2" onsubmit="handleTerminalSubmit(event)">
+                  <span class="text-brand-ice/50 mr-2 select-none font-bold">$</span>
+                  <input type="text" id="terminal-input" autocomplete="off" spellcheck="false"
+                         class="bg-transparent text-brand-surface focus:outline-none flex-1 font-mono text-xs caret-brand-steel"
+                         placeholder="type 'help', 'projects', 'stack', 'about'..." />
+                </form>
+              </div>
+        </div>
+      </div>
  </div>
 
  </div>
@@ -471,35 +471,94 @@
  </div>
  </footer>
 
- <!-- Typing Simulation Script -->
- <script>
- const commandText = "cargo build --release --target wasm32";
- const typedCmdEl = document.getElementById("typed-cmd");
- const terminalOutputEl = document.getElementById("terminal-output");
- const cursorEl = document.getElementById("cursor");
+ <!-- Interactive Shell Script -->
+  <script>
+    const termHistory = document.getElementById('terminal-history');
+    const termInput = document.getElementById('terminal-input');
+    const termScrollArea = document.getElementById('terminal-scroll-area');
 
- let charIndex = 0;
+    const COMMANDS = {
+      help: `Available commands:
+  projects   - Navigate & view featured projects (JagaJiwa, etc.)
+  stack      - Display primary skills & tools matrix
+  about      - Display education & engineering profile
+  contact    - View contact channels & social links
+  whoami     - Print current developer identity
+  fastfetch  - Show Arch Linux system spec info
+  clear      - Clear terminal screen`,
 
- function typeCommand() {
- if (charIndex < commandText.length) {
- typedCmdEl.textContent += commandText.charAt(charIndex);
- charIndex++;
- setTimeout(typeCommand, 60 + Math.random() * 40);
- } else {
- // Finished typing command, pause slightly then reveal output
- setTimeout(() => {
- cursorEl.style.display = 'none';
- terminalOutputEl.classList.remove('hidden');
- terminalOutputEl.classList.add('animate-pulse-slow');
- }, 500);
- }
- }
+      projects: () => {
+        document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
+        return `[NAVIGATING] Scrolling to Featured Work...
+1. JagaJiwa (Flagship Mental Health Platform - React 19 / Express 5)
+2. Zero-Knowledge Cryptography & Journal Encryption
+3. High-Performance Concurrency Engine`;
+      },
 
- // Start typing after initial delay
- window.addEventListener('DOMContentLoaded', () => {
- setTimeout(typeCommand, 600);
- });
- </script>
+      about: () => {
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        return `Muhammad Azif Zain Rizky (AzifZR)
+Mahasiswa Semester 3 D3 Manajemen Informatika
+Politeknik Negeri Malang (POLINEMA) PSDKU Kediri`;
+      },
+
+      stack: () => {
+        document.getElementById('stack').scrollIntoView({ behavior: 'smooth' });
+        return `[PRIMARY] Python (Backend & Automation), PHP / Laravel, SQL (Postgres / MySQL)
+[SHIPPED] TypeScript, React 19, Express 5, TailwindCSS 4
+[EXPLORING] Rust Systems Programming, WebAssembly (WASM)`;
+      },
+
+      contact: `Email: azifrizky25@gmail.com
+GitHub: https://github.com/AzifZR
+Location: Kediri / Malang, Indonesia`,
+
+      whoami: `azifzr - Software Developer & Student @ Polinema Kediri`,
+
+      fastfetch: `OS: Arch Linux x86_64
+Host: ThinkPad Workstation
+Kernel: 6.10.x-arch
+Shell: bash 5.2 / Rust cargo
+Status: 100% Focused on Engineering`,
+
+      sudo: `Permission denied: User azifzr is not in the sudoers file. This incident will be reported.`
+    };
+
+    function handleTerminalSubmit(e) {
+      e.preventDefault();
+      const rawInput = termInput.value.trim();
+      if (!rawInput) return;
+
+      const cmd = rawInput.toLowerCase();
+      
+      // Add command to history
+      const cmdLine = document.createElement('div');
+      cmdLine.className = 'text-brand-steel font-medium pt-1';
+      cmdLine.innerHTML = `<span class="text-brand-ice/50 mr-2 select-none">$</span><span class="text-brand-surface">${rawInput}</span>`;
+      termHistory.appendChild(cmdLine);
+
+      // Process command
+      const outputLine = document.createElement('div');
+      outputLine.className = 'text-brand-ice/90 pl-3 border-l-2 border-brand-steel/40 text-[11px] leading-relaxed whitespace-pre-wrap font-mono';
+
+      if (cmd === 'clear') {
+        termHistory.innerHTML = '';
+        termInput.value = '';
+        return;
+      } else if (COMMANDS[cmd]) {
+        const res = typeof COMMANDS[cmd] === 'function' ? COMMANDS[cmd]() : COMMANDS[cmd];
+        outputLine.textContent = res;
+      } else {
+        outputLine.textContent = `command not found: ${rawInput}. Type 'help' for available commands.`;
+      }
+
+      termHistory.appendChild(outputLine);
+      termInput.value = '';
+
+      // Auto scroll to bottom
+      termScrollArea.scrollTop = termScrollArea.scrollHeight;
+    }
+  </script>
 
 </body>
 </html>
