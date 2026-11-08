@@ -67,7 +67,27 @@
  transform: translateY(-4px);
  box-shadow: 0 12px 30px -10px rgba(74, 127, 167, 0.18);
  }
- </style>
+ 
+    /* Ultra-sleek Minimalist Terminal Scrollbar */
+    #terminal-scroll-area::-webkit-scrollbar {
+      width: 5px;
+    }
+    #terminal-scroll-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #terminal-scroll-area::-webkit-scrollbar-thumb {
+      background: #1A3D63;
+      border-radius: 9999px;
+    }
+    #terminal-scroll-area::-webkit-scrollbar-thumb:hover {
+      background: #4A7FA7;
+    }
+    #terminal-scroll-area {
+      scrollbar-width: thin;
+      scrollbar-color: #1A3D63 transparent;
+    }
+
+  </style>
 </head>
 <body class="bg-white text-brand-dark antialiased selection:bg-brand-ice selection:text-brand-dark relative overflow-x-hidden min-h-screen">
 
