@@ -146,11 +146,20 @@
  <a href="#about" class="hover:text-brand-steel transition-colors">About</a>
  </div>
 
+ <div class="flex items-center gap-3">
+ <!-- Minimal Theme Switcher -->
+ <button onclick="toggleTheme()" id="theme-toggle-btn" title="Toggle Clean Light / Cyber Dark"
+ class="px-2.5 py-1 rounded-full text-xs font-mono border border-brand-ice text-brand-navy hover:text-brand-steel hover:border-brand-steel transition-all flex items-center gap-1.5 bg-brand-surface">
+ <span id="theme-indicator" class="w-2 h-2 rounded-full bg-brand-steel"></span>
+ <span id="theme-label" class="text-[11px] font-semibold">LIGHT</span>
+ </button>
+
  <a href="mailto:contact@azifzr.dev" class="flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-brand-surface px-4 py-1.5 rounded-full text-xs font-medium transition-all group shadow-sm">
  <span class="w-2 h-2 rounded-full bg-brand-steel group-hover:scale-125 transition-transform animate-ping"></span>
  <span class="relative -ml-3 w-2 h-2 rounded-full bg-brand-steel"></span>
  <span>Let's Talk →</span>
  </a>
+ </div>
  </nav>
  </header>
 
