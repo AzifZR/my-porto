@@ -49,5 +49,5 @@ Buka di browser: `http://localhost:8080`
 
 ## 👨‍💻 Author
 **Muhammad Azif Zain Rizky (AzifZR)**  
-Mahasiswa D3 Manajemen Informatika • Politeknik Negeri Malang (POLINEMA) PSDKU Kediri  
+Software Developer • Kediri, East Java, Indonesia  
 - GitHub: [@AzifZR](https://github.com/AzifZR)
