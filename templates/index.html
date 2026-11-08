@@ -274,100 +274,99 @@
       </button>
     </div>
 
-    <!-- Asymmetrical Bento Grid with Glow Cards -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" id="projects-grid">
+    <!-- Dynamic Bento Grid with Glow Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
  
- <!-- Big Bento Hero Card (7 Cols) -> JagaJiwa Project -->
- <div data-category="web ai-nlp security" class="project-card lg:col-span-7 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
- <div class="space-y-4">
- <!-- Live Preview Image Container -->
- <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
- <img src="/static/jagajiwa-dashboard.png" alt="JagaJiwa Platform Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
- <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1 rounded-full border border-brand-steel/50 flex items-center gap-2">
- <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
- <span class="text-[11px] font-mono text-brand-surface font-semibold tracking-wide">FLAGSHIP TEAM PROJECT</span>
- </div>
- <div class="absolute bottom-3 right-3 bg-brand-dark/85 backdrop-blur-md px-3 py-1 rounded-lg border border-brand-steel/40 text-[11px] font-mono text-brand-ice">
- GAD-7 • End-to-End Encrypted
- </div>
- </div>
+      <!-- Project Card 1: JagaJiwa Main Platform -->
+      <div data-category="web ai-nlp security" class="project-card bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
+        <div class="space-y-4">
+          <!-- Live Preview Image Container -->
+          <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
+            <img src="/static/jagajiwa-dashboard.png" alt="JagaJiwa Platform Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1 rounded-full border border-brand-steel/50 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-[11px] font-mono text-brand-surface font-semibold tracking-wide">FLAGSHIP TEAM PROJECT</span>
+            </div>
+            <div class="absolute bottom-3 right-3 bg-brand-dark/85 backdrop-blur-md px-3 py-1 rounded-lg border border-brand-steel/40 text-[11px] font-mono text-brand-ice">
+              GAD-7 • End-to-End Encrypted
+            </div>
+          </div>
 
- <h3 class="text-2xl font-bold text-brand-dark pt-1 flex items-center justify-between">
- <span>JagaJiwa — Mental Health Ecosystem</span>
- <span class="text-xs font-mono font-normal text-brand-steel">v1.0.0</span>
- </h3>
- <p class="text-brand-navy text-sm leading-relaxed">
-           <div class="pt-2">
+          <h3 class="text-2xl font-bold text-brand-dark pt-1 flex items-center justify-between">
+            <span>JagaJiwa — Mental Health Ecosystem</span>
+            <span class="text-xs font-mono font-normal text-brand-steel">v1.0.0</span>
+          </h3>
+          <div class="pt-1">
             <button onclick="openModal()" class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-steel hover:text-brand-dark transition-colors font-medium underline underline-offset-4">
               <span>[+] Inspect System Architecture & Data Flow</span>
             </button>
           </div>
           <p class="text-brand-navy text-sm leading-relaxed">
             Platform terpadu kesehatan mental berbasis Artificial Intelligence dan komunitas anonim. Dilengkapi jurnal harian terenkripsi (<code class="text-brand-steel">crypto-js</code>), chatbot AI pendamping terintegrasi OpenAI SDK, skrining kecemasan klinis GAD-7, autentikasi 2FA TOTP, dan analisis sentimen bahasa Indonesia dengan stemmer Sastrawi.
- </p>
- </div>
+          </p>
+        </div>
 
- <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice flex flex-wrap gap-2">
- <span>React 19</span> • <span>Express 5</span> • <span>TypeScript</span> • <span>Supabase (PostgreSQL)</span> • <span>OpenAI</span> • <span>TailwindCSS 4</span>
- </div>
- </div>
+        <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice flex flex-wrap gap-2">
+          <span>React 19</span> • <span>Express 5</span> • <span>TypeScript</span> • <span>Supabase</span> • <span>OpenAI</span> • <span>TailwindCSS 4</span>
+        </div>
+      </div>
 
- <!-- Bento Card 2 (5 Cols - JiwaBot AI & Anon Community) -->
- <div data-category="web ai-nlp" class="project-card lg:col-span-5 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
- <div class="space-y-4">
- <!-- JiwaBot Preview Container -->
- <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
- <img src="/static/jagajiwa-bot.png" alt="JiwaBot AI Companion" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
- <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1 rounded-full border border-brand-steel/50 flex items-center gap-1.5">
- <span class="text-xs"></span>
- <span class="text-[11px] font-mono text-brand-surface font-semibold">JiwaBot Companion</span>
- </div>
- </div>
+      <!-- Project Card 2: JiwaBot & Anon Community -->
+      <div data-category="web ai-nlp" class="project-card bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
+        <div class="space-y-4">
+          <!-- JiwaBot Preview Container -->
+          <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
+            <img src="/static/jagajiwa-bot.png" alt="JiwaBot AI Companion" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 left-3 bg-brand-dark/90 backdrop-blur-md px-3 py-1 rounded-full border border-brand-steel/50 flex items-center gap-1.5">
+              <span class="text-xs"></span>
+              <span class="text-[11px] font-mono text-brand-surface font-semibold">JiwaBot Companion</span>
+            </div>
+          </div>
 
- <h3 class="text-xl font-bold text-brand-dark pt-1">JiwaBot & Anonymous Community</h3>
- <p class="text-brand-navy text-sm leading-relaxed">
- Chatbot pendamping AI dengan simulasi streaming response real-time serta forum komunitas anonim aman yang dilengkapi filter profanity otomatis dan modul sentimen NLP.
- </p>
- </div>
+          <h3 class="text-xl font-bold text-brand-dark pt-1">JiwaBot & Anonymous Community</h3>
+          <p class="text-brand-navy text-sm leading-relaxed">
+            Chatbot pendamping AI dengan simulasi streaming response real-time serta forum komunitas anonim aman yang dilengkapi filter profanity otomatis dan modul sentimen NLP.
+          </p>
+        </div>
 
- <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice flex flex-wrap gap-2">
- <span>OpenAI API</span> • <span>sastrawijs NLP</span> • <span>JWT + 2FA</span> • <span>otplib</span>
- </div>
- </div>
+        <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice flex flex-wrap gap-2">
+          <span>OpenAI API</span> • <span>sastrawijs NLP</span> • <span>JWT + 2FA</span> • <span>otplib</span>
+        </div>
+      </div>
 
- <!-- Lower Bento Card 3: Backend & Systems Architecture -->
- <div data-category="security web" class="project-card lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
- <div class="space-y-3">
- <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
- <span class="text-emerald-400"></span> Cryptography & Auth Pipeline
- </div>
- <h3 class="text-xl font-bold text-brand-dark">Zero-Knowledge Journal Encryption</h3>
- <p class="text-brand-navy text-sm leading-relaxed">
- Arsitektur keamanan data sensitif pengguna dengan enkripsi AES sisi klien sebelum dikirim ke database Supabase, memastikan privasi catatan harian kesehatan mental tetap terlindungi penuh.
- </p>
- </div>
- <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice">
- TypeScript • Crypto-JS • OAuth 2.0 • PostgreSQL RLS
- </div>
- </div>
+      <!-- Project Card 3: Backend & Systems Architecture -->
+      <div data-category="security web" class="project-card bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
+            <span class="text-emerald-400"></span> Cryptography & Auth Pipeline
+          </div>
+          <h3 class="text-xl font-bold text-brand-dark">Zero-Knowledge Journal Encryption</h3>
+          <p class="text-brand-navy text-sm leading-relaxed">
+            Arsitektur keamanan data sensitif pengguna dengan enkripsi AES sisi klien sebelum dikirim ke database Supabase, memastikan privasi catatan harian kesehatan mental tetap terlindungi penuh.
+          </p>
+        </div>
+        <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice">
+          TypeScript • Crypto-JS • OAuth 2.0 • PostgreSQL RLS
+        </div>
+      </div>
 
- <!-- Lower Bento Card 4: High Performance Rust Tooling -->
- <div data-category="systems" class="project-card lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
- <div class="space-y-3">
- <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
- <span class="text-emerald-400"></span> High Concurrency Engine
- </div>
- <h3 class="text-xl font-bold text-brand-dark">Microservice & Developer Utilities</h3>
- <p class="text-brand-navy text-sm leading-relaxed">
- Layanan sistem berkecepatan tinggi dengan Rust dan Axum, mengoptimalkan pipeline pemrosesan data asinkronus, zero memory leaks, dan automated testing pipeline.
- </p>
- </div>
- <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice">
- Rust • Axum • Tokio • Docker • PostgreSQL
- </div>
- </div>
+      <!-- Project Card 4: High Performance Rust Tooling -->
+      <div data-category="systems" class="project-card bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
+            <span class="text-emerald-400"></span> High Concurrency Engine
+          </div>
+          <h3 class="text-xl font-bold text-brand-dark">Microservice & Developer Utilities</h3>
+          <p class="text-brand-navy text-sm leading-relaxed">
+            Layanan sistem berkecepatan tinggi dengan Rust dan Axum, mengoptimalkan pipeline pemrosesan data asinkronus, zero memory leaks, dan automated testing pipeline.
+          </p>
+        </div>
+        <div class="text-xs font-mono text-brand-steel mt-6 pt-4 border-t border-brand-ice">
+          Rust • Axum • Tokio • Docker • PostgreSQL
+        </div>
+      </div>
 
- </div>
+    </div>
  </section>
 
  <!-- 02 / TECH STACK -->
