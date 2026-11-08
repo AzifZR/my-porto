@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#0A0D12"/>
+  <!-- Wolf head -->
+  <polygon points="10.3,35 20.2,6.5 33.9,24.8 50,19.1 66.1,24.8 79.8,6.5 89.7,35 83.5,61.3 50,93.2 16.5,61.3" fill="#EEE9E0"/>
+  <!-- Inner ears -->
+  <polygon points="20.9,16.8 27.1,27.6 15.9,29.3" fill="#FF5A1A"/>
+  <polygon points="79.1,16.8 72.9,27.6 84.1,29.3" fill="#FF5A1A"/>
+  <!-- Muzzle shading -->
+  <polygon points="35.1,65.8 64.9,65.8 50,89.8" fill="#D2CABC"/>
+  <!-- Eyes -->
+  <polygon points="25.2,46.4 45,43.6 42.6,52.1 28.3,53.9" fill="#FF5A1A"/>
+  <polygon points="74.8,46.4 55,43.6 57.4,52.1 71.7,53.9" fill="#FF5A1A"/>
+  <!-- Nose -->
+  <polygon points="41.9,74.9 58.1,74.9 50,84.6" fill="#0A0D12"/>
+</svg>
