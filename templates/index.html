@@ -122,11 +122,12 @@
  <div class="absolute top-[2300px] left-0 w-[600px] h-[600px] bg-gradient-to-tr from-brand-steel/20 via-brand-ice/25 to-transparent rounded-full blur-3xl pointer-events-none -z-10 animate-blob-float-delayed -translate-x-1/4"></div>
 
  <!-- Minimal Floating Navbar -->
- <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300">
- <nav class="w-full max-w-5xl bg-brand-surface/85 backdrop-blur-md border border-brand-ice/80 rounded-full px-6 py-3 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
- <a href="#" class="font-semibold text-sm tracking-tight text-brand-dark flex items-center gap-2 group">
- <span class="group-hover:text-brand-steel transition-colors">AzifZR</span>
- <span class="text-brand-steel text-xs font-mono">// systems</span>
+ <header class="fixed top-3 sm:top-6 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 transition-all duration-300">
+ <div class="w-full max-w-5xl">
+ <nav class="w-full bg-brand-surface/90 backdrop-blur-md border border-brand-ice/80 rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
+ <a href="#" class="font-semibold text-sm tracking-tight text-brand-dark flex items-center gap-1.5 group">
+ <span class="group-hover:text-brand-steel transition-colors font-mono font-bold">AzifZR</span>
+ <span class="text-brand-steel text-xs font-mono hidden sm:inline">// systems</span>
  </a>
 
  <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-navy">
@@ -135,12 +136,50 @@
  <a href="#about" class="hover:text-brand-steel transition-colors">About</a>
  </div>
 
- <a href="mailto:azifrizky25@gmail.com" class="flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-brand-surface px-4 py-1.5 rounded-full text-xs font-medium transition-all group shadow-sm">
+ <div class="flex items-center gap-2">
+ <!-- Desktop Only Let's Talk CTA -->
+ <a href="mailto:azifrizky25@gmail.com" class="hidden md:flex items-center gap-2 bg-brand-dark hover:bg-brand-navy text-brand-surface px-4 py-1.5 rounded-full text-xs font-medium transition-all group shadow-sm">
         <span class="w-2 h-2 rounded-full bg-brand-steel group-hover:scale-125 transition-transform animate-ping"></span>
         <span class="relative -ml-3 w-2 h-2 rounded-full bg-brand-steel"></span>
         <span>Let's Talk →</span>
-      </a>
+ </a>
+
+ <!-- Mobile Menu Hamburger Button -->
+ <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu" class="md:hidden p-2 rounded-xl border border-brand-ice text-brand-navy hover:text-brand-dark hover:bg-brand-ice/20 transition-colors flex items-center gap-1.5">
+   <span class="text-xs font-mono font-semibold text-brand-steel">Menu</span>
+   <svg id="hamburger-icon" class="w-5 h-5 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+   </svg>
+   <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+   </svg>
+ </button>
+ </div>
  </nav>
+
+ <!-- Mobile Nav Dropdown -->
+ <div id="mobile-menu" class="hidden md:hidden mt-2 bg-brand-surface/95 backdrop-blur-md border border-brand-ice rounded-2xl p-3 shadow-xl space-y-1.5 text-sm font-mono text-brand-navy">
+   <a href="#work" onclick="toggleMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-brand-ice/30 hover:text-brand-dark transition-colors">
+     <span>01 / Featured Work</span>
+     <span class="text-xs text-brand-steel">↗</span>
+   </a>
+   <a href="#stack" onclick="toggleMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-brand-ice/30 hover:text-brand-dark transition-colors">
+     <span>02 / Tech Stack</span>
+     <span class="text-xs text-brand-steel">↗</span>
+   </a>
+   <a href="#about" onclick="toggleMobileMenu()" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-brand-ice/30 hover:text-brand-dark transition-colors">
+     <span>03 / About Me</span>
+     <span class="text-xs text-brand-steel">↗</span>
+   </a>
+   <!-- Let's Talk inside Mobile Dropdown -->
+   <div class="pt-2 border-t border-brand-ice/80">
+     <a href="mailto:azifrizky25@gmail.com" onclick="toggleMobileMenu()" class="w-full flex items-center justify-center gap-2 bg-brand-dark hover:bg-brand-navy text-brand-surface px-4 py-2.5 rounded-xl text-xs font-medium transition-all shadow-sm">
+       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+       <span>Let's Talk →</span>
+     </a>
+   </div>
+ </div>
+ </div>
  </header>
 
  <!-- Hero Section -->
@@ -737,6 +776,24 @@ Status: 100% Focused on Engineering`,
       modal.classList.add('hidden');
     }
     document.getElementById('arch-modal').addEventListener('click', closeModal);
+
+    // Mobile Navigation Drawer Toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+      
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        hamburgerIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    }
   </script>
 
 
