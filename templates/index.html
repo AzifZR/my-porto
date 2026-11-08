@@ -261,7 +261,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" id="projects-grid">
  
  <!-- Big Bento Hero Card (7 Cols) -> JagaJiwa Project -->
- <div class="lg:col-span-7 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
+ <div data-category="web ai-nlp security" class="project-card lg:col-span-7 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
  <div class="space-y-4">
  <!-- Live Preview Image Container -->
  <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
@@ -296,7 +296,7 @@
  </div>
 
  <!-- Bento Card 2 (5 Cols - JiwaBot AI & Anon Community) -->
- <div class="lg:col-span-5 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
+ <div data-category="web ai-nlp" class="project-card lg:col-span-5 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
  <div class="space-y-4">
  <!-- JiwaBot Preview Container -->
  <div class="rounded-xl overflow-hidden border border-brand-navy/30 bg-brand-dark relative aspect-[16/9] shadow-inner">
@@ -319,7 +319,7 @@
  </div>
 
  <!-- Lower Bento Card 3: Backend & Systems Architecture -->
- <div class="lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
+ <div data-category="security web" class="project-card lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
  <div class="space-y-3">
  <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
  <span class="text-emerald-400"></span> Cryptography & Auth Pipeline
@@ -335,7 +335,7 @@
  </div>
 
  <!-- Lower Bento Card 4: High Performance Rust Tooling -->
- <div class="lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
+ <div data-category="systems" class="project-card lg:col-span-6 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between">
  <div class="space-y-3">
  <div class="inline-flex items-center gap-1.5 bg-brand-dark text-brand-surface text-xs font-mono px-3 py-1 rounded-full">
  <span class="text-emerald-400"></span> High Concurrency Engine
@@ -650,7 +650,7 @@ Status: 100% Focused on Engineering`,
   <script>
     // Project Category Filtering
     function filterProjects(category) {
-      const items = document.querySelectorAll('.project-item');
+      const cards = document.querySelectorAll('.project-card');
       const buttons = document.querySelectorAll('.filter-btn');
 
       buttons.forEach(btn => {
@@ -661,14 +661,12 @@ Status: 100% Focused on Engineering`,
         }
       });
 
-      items.forEach(item => {
-        const itemCats = item.getAttribute('data-category') || '';
-        if (category === 'all' || itemCats.includes(category)) {
-          item.classList.remove('hidden');
-          item.classList.add('flex');
+      cards.forEach(card => {
+        const cats = card.getAttribute('data-category') || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.style.display = '';
         } else {
-          item.classList.add('hidden');
-          item.classList.remove('flex');
+          card.style.display = 'none';
         }
       });
     }
