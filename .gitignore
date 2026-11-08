@@ -1,1 +1,5 @@
 /target
+scratch/
+*.swp
+*.bak
+.DS_Store
