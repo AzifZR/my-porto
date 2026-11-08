@@ -238,8 +238,27 @@
  <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mt-1">Featured Systems & Applications</h2>
  </div>
 
- <!-- Asymmetrical Bento Grid with Glow Cards -->
- <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+     <!-- Interactive Category Filter Tabs -->
+    <div class="flex flex-wrap items-center gap-2 mb-8">
+      <button onclick="filterProjects('all')" data-filter="all" class="filter-btn active-filter px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-dark text-brand-surface shadow-sm">
+        [All Projects]
+      </button>
+      <button onclick="filterProjects('web')" data-filter="web" class="filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-surface text-brand-navy border border-brand-ice hover:border-brand-steel">
+        / Fullstack & Web
+      </button>
+      <button onclick="filterProjects('ai-nlp')" data-filter="ai-nlp" class="filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-surface text-brand-navy border border-brand-ice hover:border-brand-steel">
+        / AI & NLP
+      </button>
+      <button onclick="filterProjects('security')" data-filter="security" class="filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-surface text-brand-navy border border-brand-ice hover:border-brand-steel">
+        / Cryptography & Security
+      </button>
+      <button onclick="filterProjects('systems')" data-filter="systems" class="filter-btn px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all bg-brand-surface text-brand-navy border border-brand-ice hover:border-brand-steel">
+        / Rust & Systems
+      </button>
+    </div>
+
+    <!-- Asymmetrical Bento Grid with Glow Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8" id="projects-grid">
  
  <!-- Big Bento Hero Card (7 Cols) -> JagaJiwa Project -->
  <div class="lg:col-span-7 bg-brand-surface border border-brand-ice rounded-2xl p-7 glow-card flex flex-col justify-between group">
